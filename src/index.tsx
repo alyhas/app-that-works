@@ -24,8 +24,9 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
-const domain = process.env.REACT_APP_AUTH0_DOMAIN!;
-const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID!;
+// Support both CRA-prefixed and Netlify-generated unprefixed Auth0 env vars
+const domain = process.env.REACT_APP_AUTH0_DOMAIN || process.env.AUTH0_DOMAIN!;
+const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID || process.env.AUTH0_CLIENT_ID!;
 
 root.render(
   <React.StrictMode>
