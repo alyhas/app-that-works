@@ -75,6 +75,21 @@
     width: 696px;
     height: 593px;
     transform: translate(-25%, -50%);
+    
+    @media (max-width: 768px) {
+      width: 90%;
+      height: 80vh;
+      max-height: 600px;
+      right: 5%;
+      transform: translate(0, -50%);
+    }
+    
+    @media (max-width: 480px) {
+      width: 95%;
+      height: 90vh;
+      right: 2.5%;
+      top: -45vh;
+    }
   }
 
   .dialog-container {
@@ -83,6 +98,14 @@
     max-height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
+    
+    @media (max-width: 768px) {
+      padding: 20px;
+    }
+    
+    @media (max-width: 480px) {
+      padding: 15px;
+    }
   }
 
   .small {
@@ -93,6 +116,11 @@
     display: flex;
     gap: 1rem;
     padding: 8px 0;
+    
+    @media (max-width: 480px) {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
   }
 
   textarea.system {
@@ -113,6 +141,12 @@
     border: 0;
     resize: vertical;
     box-sizing: border-box;
+    
+    @media (max-width: 480px) {
+      min-height: 100px;
+      height: 100px;
+      font-size: 14px;
+    }
   }
 
   .function-declarations {
@@ -126,6 +160,15 @@
     grid-template-columns: 1fr 0.5fr 1.5fr;
     row-gap: 6px;
     /* Three columns, last one takes remaining space */
+    
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr 0.5fr 1fr;
+    }
+    
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+      row-gap: 12px;
+    }
   }
 
   .fd-row-name {

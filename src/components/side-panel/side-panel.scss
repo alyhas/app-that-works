@@ -14,6 +14,14 @@
   font-style: normal;
   font-weight: 400;
   line-height: 160%;
+  
+  @media (max-width: 768px) {
+    height: 30vh;
+    min-height: 200px;
+    width: 100%;
+    border-right: none;
+    border-top: 1px solid var(--gray-600);
+  }
   /* 20.8px */
 
   .hidden {
@@ -76,6 +84,10 @@
       transition: all 0.2s ease-in allow-discrete;
       transition-delay: 0.1s;
     }
+    
+    @media (max-width: 768px) {
+      height: 40px;
+    }
 
     .indicators .streaming-indicator {
       width: 30px;
@@ -98,6 +110,11 @@
     padding: 24px 25px;
     justify-content: flex-end;
     gap: 21px;
+    
+    @media (max-width: 768px) {
+      padding: 12px 15px;
+      gap: 10px;
+    }
 
     .streaming-indicator {
       user-select: none;
@@ -133,6 +150,11 @@
     overflow-x: hidden;
     overflow-y: auto;
     /*scrollbar-gutter: stable both-edges;*/
+    
+    @media (max-width: 768px) {
+      width: 100%;
+      height: calc(30vh - 100px); /* Subtract height of header and input area */
+    }
   }
 
   .input-container {
@@ -142,6 +164,10 @@
     border-top: 1px solid var(--Neutral-20);
     padding: 14px 25px;
     overflow: hidden;
+    
+    @media (max-width: 768px) {
+      padding: 8px 15px;
+    }
 
     .input-content {
       position: relative;
@@ -210,6 +236,12 @@
 .side-panel.open {
   width: 400px;
   height: 100vh;
+  
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 30vh;
+    min-height: 200px;
+  }
 }
 
 .side-panel-responses,

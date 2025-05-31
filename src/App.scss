@@ -1,3 +1,8 @@
+/* Mobile breakpoints */
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+
 :root {
   --text: white;
   --gray-200: #b4b8bb;
@@ -121,6 +126,13 @@ body {
   display: flex;
   height: 100vh;
   width: 100vw;
+  flex-direction: row;
+
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+    height: 100%;
+    overflow: hidden;
+  }
 
   a,
   a:visited,
@@ -146,6 +158,11 @@ body {
     gap: 1rem;
     max-width: 100%;
     overflow: hidden;
+
+    @media (max-width: 768px) {
+      height: 70vh;
+      min-height: 300px;
+    }
   }
 
   .main-app-area {
@@ -153,6 +170,7 @@ body {
     flex: 1;
     align-items: center;
     justify-content: center;
+    width: 100%;
   }
 
   .function-call {
@@ -170,4 +188,9 @@ body {
   max-width: 90%;
   border-radius: 32px;
   max-height: fit-content;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    border-radius: 16px;
+  }
 }
