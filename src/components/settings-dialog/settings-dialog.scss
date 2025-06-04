@@ -8,15 +8,197 @@
   }
 }
 
-.settings-dialog {
+// Settings button container
+.settings-button-container {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
   height: 70px;
+}
+
+// Settings button styling
+.settings-button {
+  background: none;
+  border: 0;
+  color: var(--Neutral-80);
+  cursor: pointer;
+  font-size: 24px;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+  
+  &:hover {
+    background-color: var(--Neutral-20);
+  }
+}
+  
+// Modal overlay styling
+.settings-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+  
+// Modal content styling
+.settings-modal {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  height: auto;
+  max-height: 90vh;
+  background-color: var(--Neutral-5);
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  font-family: "Space mono";
+  color: var(--Neutral-80);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  
+  @media (max-width: 900px) {
+    width: 95%;
+    max-height: 90vh;
+  }
+  
+  @media (max-width: 480px) {
+    width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+}
+
+// Modal header
+.settings-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--Neutral-15);
+  
+  h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  .close-icon-button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: var(--Neutral-60);
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+    
+    &:hover {
+      background-color: var(--Neutral-20);
+      color: var(--Neutral-80);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    padding: 12px 16px;
+  }
+}
+
+// Modal body
+.settings-modal-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+  flex: 1;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+
+  @media (max-width: 480px) {
+    padding: 16px;
+  }
+
+  .connected-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    background-color: var(--Neutral-15);
+    border-radius: 4px;
+
+    p {
+      color: var(--Neutral-80);
+      font-size: 14px;
+      text-align: center;
+      margin: 0;
+    }
+  }
+
+  &.disabled {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+}
+
+// Modal footer
+.settings-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px 24px;
+  border-top: 1px solid var(--Neutral-15);
+  
+  .close-button {
+    padding: 8px 16px;
+    background-color: var(--Neutral-15);
+    color: var(--Neutral-80);
+    border: none;
+    border-radius: 6px;
+    font-family: "Space mono";
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    
+    &:hover {
+      background-color: var(--Neutral-20);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    padding: 12px 16px;
+  }
+}
 
   .connected-indicator {
     font-style: italic;
+    margin-bottom: 16px;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: var(--Neutral-20);
+    color: var(--Neutral-90);
+    text-align: center;
+    
+    p {
+      margin: 0;
+    }
   }
 
   /*.connected-indicator {
@@ -51,61 +233,26 @@
     }
   }*/
 
-  h4 {
+  h3, h4 {
     margin-left: 4px;
-    margin-bottom: 10px;
+    margin-bottom: 16px;
+    color: var(--Neutral-90);
+  }
+  
+  h3 {
+    margin-top: 24px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  h4 {
+    margin-top: 16px;
+    font-size: 16px;
   }
 
   button {
     background: none;
     border: 0;
-  }
-
-  .dialog {
-    font-family: "Space mono";
-    background: var(--Neutral-5);
-    border-radius: 18px;
-    color: var(--Neutral-80);
-    border: 0;
-    padding: 0;
-    margin: 0;
-    position: fixed;
-    top: -400px;
-    right: 0;
-    width: 696px;
-    height: 593px;
-    transform: translate(-25%, -50%);
-    
-    @media (max-width: 768px) {
-      width: 90%;
-      height: 80vh;
-      max-height: 600px;
-      right: 5%;
-      transform: translate(0, -50%);
-    }
-    
-    @media (max-width: 480px) {
-      width: 95%;
-      height: 90vh;
-      right: 2.5%;
-      top: -45vh;
-    }
-  }
-
-  .dialog-container {
-    box-sizing: border-box;
-    padding: 32px;
-    max-height: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
-    
-    @media (max-width: 768px) {
-      padding: 20px;
-    }
-    
-    @media (max-width: 480px) {
-      padding: 15px;
-    }
   }
 
   .small {
@@ -116,6 +263,11 @@
     display: flex;
     gap: 1rem;
     padding: 8px 0;
+    flex-wrap: wrap;
+    
+    @media (max-width: 768px) {
+      gap: 0.75rem;
+    }
     
     @media (max-width: 480px) {
       flex-direction: column;
@@ -144,11 +296,163 @@
     
     @media (max-width: 480px) {
       min-height: 100px;
-      height: 100px;
       font-size: 14px;
     }
   }
 
+  .custom-instructions {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    & > label {
+      font-weight: bold;
+      font-size: 14px;
+      margin-bottom: -10px;
+    }
+    
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid var(--Neutral-30);
+      border-radius: 6px;
+      background-color: var(--Neutral-15);
+      color: var(--Neutral-90);
+      font-size: 14px;
+      margin-bottom: 16px;
+      
+      &:focus {
+        outline: none;
+        border-color: var(--Primary-50);
+        box-shadow: 0 0 0 1px var(--Primary-20);
+      }
+      
+      &:disabled {
+        background-color: var(--Neutral-20);
+        cursor: not-allowed;
+      }
+    }
+    
+    .gender-toggle {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 16px;
+      
+      .toggle-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        
+        input[type="checkbox"] {
+          width: 36px;
+          height: 20px;
+          position: relative;
+          appearance: none;
+          background: var(--Neutral-30);
+          border-radius: 20px;
+          box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+          cursor: pointer;
+          transition: 0.4s;
+          
+          &:checked {
+            background: var(--Primary-50);
+          }
+          
+          &:before {
+            content: "";
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: 0.4s;
+          }
+          
+          &:checked:before {
+            left: 18px;
+          }
+          
+          &:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+          }
+        }
+        
+        .toggle-label {
+          font-weight: 500;
+          color: var(--Neutral-90);
+        }
+      }
+    }
+  }
+
+  .dialog-container {
+    box-sizing: border-box;
+    padding: 24px;
+    height: calc(100% - 56px); /* Account for footer height */
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    
+    @media (max-width: 768px) {
+      padding: 20px;
+    }
+    
+    @media (max-width: 480px) {
+      padding: 16px;
+    }
+    
+    &.disabled {
+      position: relative;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.1);
+        z-index: 5;
+        pointer-events: none;
+      }
+    }
+  }
+  
+  .dialog-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 12px 24px;
+    background-color: var(--Neutral-10);
+    border-top: 1px solid var(--Neutral-20);
+    
+    @media (max-width: 768px) {
+      padding: 12px 20px;
+    }
+    
+    @media (max-width: 480px) {
+      padding: 12px 16px;
+    }
+    
+    .close-button {
+      background-color: var(--Primary-50);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background-color 0.2s;
+      
+      &:hover {
+        background-color: var(--Primary-60);
+      }
+    }
+  }
+  
   .function-declarations {
     font-size: 66%;
     width: 100%;
@@ -159,10 +463,15 @@
     display: grid;
     grid-template-columns: 1fr 0.5fr 1.5fr;
     row-gap: 6px;
+    column-gap: 8px;
     /* Three columns, last one takes remaining space */
     
     @media (max-width: 768px) {
       grid-template-columns: 1fr 0.5fr 1fr;
+    }
+    
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr 1fr;
     }
     
     @media (max-width: 480px) {
@@ -189,30 +498,27 @@
   .fd-row-args > *:not(:last-child)::after {
     content: ", ";
   }
-
-  .fd-row {
-    display: contents;
-    color: var(--Neutral-70);
-    /* Make data-row participate in the grid layout of data-rows, without being an additional grid row */
-    align-items: center;
-    /* Vertically center the content of the row */
-    /* Bottom border for each row */
-    height: 35px;
-    /* The row height */
+  
+  .fd-row-name {
+    font-weight: bold;
   }
-
-  .fd-row-description {
-    flex: 1;
-    background: transparent;
-    border: none;
-    color: inherit;
-    font-size: inherit;
-    padding: 2px 4px;
-
-    &:hover,
-    &:focus {
-      background: var(--Neutral-20);
-      outline: none;
+  
+  .fd-row-args {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    
+    span {
+      background-color: var(--Neutral-15);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 10px;
     }
   }
-}
+  
+  .fd-row-description {
+    padding: 4px 8px;
+    font-size: 12px;
+    width: 100%;
+  }
+

@@ -1,0 +1,51 @@
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+  
+  &:hover {
+    opacity: 0.9;
+  }
+
+  .logo {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+  }
+
+  .logo-fallback {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background-color: var(--Primary-50);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .app-name {
+    color: var(--Neutral-90);
+    font-size: 18px;
+    font-weight: 600;
+    white-space: nowrap;
+    font-family: var(--font-family, 'Space mono', monospace);
+  }
+
+  @media (max-width: 768px) {
+    .app-name {
+      font-size: 16px;
+    }
+    
+    .logo, .logo-fallback {
+      width: 28px;
+      height: 28px;
+      font-size: 12px;
+    }
+  }
+}

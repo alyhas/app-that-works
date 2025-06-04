@@ -12,6 +12,6 @@ Your response should come as you are talking to the audience. Never address the 
 
 `,
   responseModalities: [Modality.AUDIO],   // or AUDIO, etc.
-  tools: [{ googleSearch: {} }],         // keep only what you need
+ 
   enableAffectiveDialog: true,
 } as LiveConnectConfig;

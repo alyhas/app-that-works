@@ -22,6 +22,7 @@ import Select from "react-select";
 import { useLiveAPIContext } from "../../contexts/LiveAPIContext";
 import { useLoggerStore } from "../../lib/store-logger";
 import Logger, { LoggerFilterType } from "../logger/Logger";
+import Logo from "../Logo/Logo";
 import "./side-panel.scss";
 
 const filterOptions = [
@@ -75,6 +76,9 @@ export default function SidePanel() {
 
   return (
     <div className={`side-panel ${open ? "open" : ""}`}>
+      <div className="logo-wrapper">
+        <Logo />
+      </div>
       <header className="top">
         <h2>Console</h2>
         {open ? (
